@@ -25,13 +25,16 @@ vapi_DATA = \
             plurk.vapi
 vapidir = @datadir@/vala/vapi
 
+gir_DATA = Plurk-$(VERSION).gir
+girdir = @datadir@/gir-1.0
+
 dist-hook: plurk.h
 
 distcheck-hook: plurk.h
 
 plurk.deps: $(libplurk_la_SOURCES)
-
 plurk.vapi: $(libplurk_la_SOURCES) plurk.h
+Plurk-$(VERSION).gir: $(libplurk_la_SOURCES) plurk.h
 
 install-data-hook: plurk.h
 	test -d $(DESTDIR)$(includedir) || mkdir -p $(DESTDIR)$(includedir)
@@ -43,6 +46,6 @@ uninstall-local:
 	rm -f $(DESTDIR)$(includedir)/plurk.h
 
 plurk.h: $(libplurk_la_SOURCES)
-	valac $(VALA_FLAGS) $(srcdir)/*.vala -C -H $(srcdir)/plurk.h --library plurk
+	valac $(VALA_FLAGS) $(srcdir)/*.vala -C -H $(srcdir)/plurk.h --gir=$(srcdir)/Plurk-$(VERSION).gir --library plurk
 
-EXTRA_DIST = plurk.h plurk.deps.in plurk.pc.in $(vapi_DATA)
+EXTRA_DIST = plurk.h plurk.deps.in plurk.pc.in $(vapi_DATA) $(gir_DATA)
