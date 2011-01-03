@@ -46,6 +46,6 @@ uninstall-local:
 	rm -f $(DESTDIR)$(includedir)/plurk.h
 
 plurk.h: $(libplurk_la_SOURCES)
-	valac $(VALA_FLAGS) $(srcdir)/*.vala -C -H $(srcdir)/plurk.h --gir=$(srcdir)/Plurk-$(VERSION).gir --library plurk
+	valac $(VALA_FLAGS) $(srcdir)/*.vala -C -H $(srcdir)/plurk.h --gir=Plurk-$(VERSION).gir --library plurk
 
 EXTRA_DIST = plurk.h plurk.deps.in plurk.pc.in $(vapi_DATA) $(gir_DATA)
