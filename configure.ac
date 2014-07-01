@@ -6,6 +6,7 @@ AC_INIT([libplurk], [0.2], [david@wu-man.com])
 
 AM_MAINTAINER_MODE([enable])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
+AM_PROG_AR
 AC_PROG_LIBTOOL
 AC_CONFIG_MACRO_DIR([m4])
 
