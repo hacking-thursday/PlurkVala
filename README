@@ -46,6 +46,13 @@ PlurkVala depends on the following libraries:
 
 PlurkVala has been tested to compile with valac-0.12.
 
+If you want to compile PlurkVala on Debian or Ubuntu, you may need to install
+the following Debian packages.
+
+  - libglib2.0-dev
+  - libjson-glib-dev
+  - libsoup2.4-dev
+  - valac
 
 Sample Test Code
 ----------------
